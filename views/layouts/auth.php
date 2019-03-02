@@ -6,15 +6,12 @@
 <!DOCTYPE html>
 <html lang="en-US">
 
-
     <!-- head
     ============================================================================ -->
     <head>
-
-
         <!-- Basic Info
         ======================================================================== -->
-        <title>PLUME HTML5 Multipurpose Template</title>
+        <title>KMJ Blog</title>
 
         <meta name="author" content="Graphicfort">
         <meta name="robots" content="index follow">
@@ -61,36 +58,24 @@
 
         <?php $this->head() ?>
     </head><!-- /End head -->
-
-
     <!-- body
     ============================================================================ -->
     <body>
         <?php $this->beginBody() ?>
-
-
         <!-- To top Button
         ======================================================================== -->
         <a href="#" class="btn-gfort-top"><i class="fa fa-angle-up"></i></a>
-
-
         <!-- Main Wrapper
         ======================================================================== -->
         <div id="main-wrapper">
-
-
             <!-- Page Body
             ==================================================================== -->
             <div class="page-body">
-
-
                 <!-- Main Content
                 ================================================================ -->
                 <div class="main-content">
                     <!-- Main Content Container -->
                     <div class="main-content-container">
-
-
                         <!-- gfort Section -->
                         <div class="gfort-section grey-background-color">
                             <!-- Section Container -->
@@ -99,30 +84,20 @@
                                 <div class="container">
                                     <!-- row -->
                                     <div class="row">
-
                                         <!-- col-md-12 -->
                                         <div class="col-md-12">
                                             <?= $content ?>
                                         </div><!-- /End col-md-12 -->
-
                                     </div><!-- /End row -->
                                 </div><!-- /End container -->
                             </div><!-- /End Section Container -->
                         </div><!-- /End gfort Section -->
-
-
                     </div><!-- /End Main Content Container -->
                 </div><!-- /End Main Content -->
-
-
             </div><!-- /End Page Body -->
-
-
             <!-- Footer Section
             ==================================================================== -->
             <footer class="footer-section">
-
-
                 <!-- Footer copyright Section -->
                 <div class="footer-copyright-section">
                     <!-- Footer copyright Section Container -->
@@ -131,20 +106,17 @@
                         <div class="container">
                             <!-- row -->
                             <div class="row">
-
-
                                 <!-- copyright Widget ( Left ) -->
                                 <div class="copyright-widget widget-left-side">
                                     <!-- copyright Widget Container -->
                                     <div class="copyright-widget-container">
-
-
                                         <!-- Info Block -->
                                         <div class="info-block">
                                             <!-- Info Block Container -->
                                             <div class="info-block-container">
 
-                                                <p>&copy; 2017 <a href="http://themeforest.net/user/graphicfort/portfolio?ref=GraphicFort" title="Graphicfort" target="_blank">Graphicfort</a>, all rights reserved.</p>
+                                                <?= $this->render('copyright') ?>
+                                                <!-- <p>&copy; 2017 <a href="http://themeforest.net/user/graphicfort/portfolio?ref=GraphicFort" title="Graphicfort" target="_blank">Graphicfort</a>, all rights reserved.</p> -->
 
                                             </div><!-- /End Info Block Container -->
                                         </div><!-- /End Info Block -->
@@ -159,11 +131,7 @@
                         </div><!-- /End container -->
                     </div><!-- /End Footer copyright Section Container -->
                 </div><!-- /End Footer copyright Section -->
-
-
             </footer><!-- /End Footer Section -->
-
-
         </div><!-- /End Main Wrapper -->
 
 

@@ -11,10 +11,9 @@
     ============================================================================ -->
     <head>
 
-
         <!-- Basic Info
         ======================================================================== -->
-        <title>PLUME HTML5 Multipurpose Template</title>
+        <title>KMJBlog</title>
 
         <meta name="author" content="Graphicfort">
         <meta name="robots" content="index follow">
@@ -58,22 +57,15 @@
         <!--  Head JS Libs
         ======================================================================== -->
         <!-- <script src="/theme/js/vendor/modernizr-custom.js"></script> -->
-
         <?php $this->head() ?>
     </head><!-- /End head -->
-
-
     <!-- body
     ============================================================================ -->
     <body>
       <?php $this->beginBody() ?>
-
-
         <!-- To top Button
         ======================================================================== -->
         <a href="/theme/#" class="btn-gfort-top"><i class="fa fa-angle-up"></i></a>
-
-
         <!-- Main Wrapper
         ======================================================================== -->
         <div id="main-wrapper">
@@ -91,43 +83,29 @@
                     <div class="breadcrumb-title">
                         <!-- container -->
                         <div class="container">
-
-                            <h1 class="breadcrumb-main-title">Blog</h1>
-
+                            <h3 class="breadcrumb-main-title">KMJBlog Блог школы математики и информатики</h1>
                         </div><!-- /End container -->
                     </div><!-- /End Breadcrumb Title -->
-
-
                     <!-- Breadcrumb Block -->
                     <div class="breadcrumb-block">
                         <!-- container -->
                         <div class="container">
-
                             <ol class="breadcrumb">
                                 <li><a href="/theme/index.html" title="Home"><i class="fa fa-home"></i></a></li>
-                                <li class="active">Blog Right Sidebar</li>
-                            </ol>
 
+                            </ol>
                         </div><!-- /End container -->
                     </div><!-- /End Breadcrumb block -->
-
-
                 </div><!-- /End Section Container -->
             </div><!-- /End Page Title Section -->
-
-
             <!-- Page Body (Right Sidebar)
             ==================================================================== -->
             <div class="page-body page-right-sidebar">
-
-
                 <!-- Main Content
                 ================================================================ -->
                 <div class="main-content">
                     <!-- Main Content Container -->
                     <div class="main-content-container">
-
-
                         <!-- gfort Section -->
                         <div class="gfort-section">
                             <!-- Section Container -->
@@ -136,40 +114,26 @@
                                 <div class="container">
                                     <!-- row -->
                                     <div class="row">
-
                                         <!-- col-md-12 -->
                                         <div class="col-md-12">
-                                            
                                             <?= $content ?>
-
                                         </div><!-- /End col-md-12 -->
-
                                     </div><!-- /End row -->
                                 </div><!-- /End container -->
                             </div><!-- /End Section Container -->
                         </div><!-- /End gfort Section -->
-
-
                     </div><!-- /End Main Content Container -->
                 </div><!-- /End Main Content -->
-
                 <?= $this->render('sidebar') ?>
-
             </div><!-- /End Page Body (Right Sidebar) -->
-
             <?= $this->render('footer') ?>
-
         </div><!-- /End Main Wrapper -->
-
-
         <!-- Java Script Files
         ======================================================================== -->
         <!-- <script type="text/javascript" src="/theme/js/vendor/jquery.min.js"></script>
         <script type="text/javascript" src="/theme/js/vendor/bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/theme/js/plugins.js"></script>
         <script type="text/javascript" src="/theme/js/scripts.js"></script> -->
-
-
         <?php $this->endBody() ?>
     </body>
 </html>

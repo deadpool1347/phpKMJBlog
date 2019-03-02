@@ -9,8 +9,6 @@
         <div class="header-menu">
             <!-- Header Menu Container -->
             <div class="header-menu-container">
-
-
                 <!-- Navbar -->
                 <nav class="navbar">
                     <!-- container -->
@@ -19,20 +17,14 @@
                         <div class="row">
                             <!-- col-md-12 -->
                             <div class="col-md-12">
-
-
                                 <!-- Navbar Header / Logo -->
                                 <div class="navbar-header">
                                     <a href="/theme/index.html" class="navbar-brand" title="PLUME">
                                         <img src="/theme/images/logo.png" alt="PLUME Logo" />
                                     </a>
                                 </div><!-- /End Navbar Header / Logo -->
-
-
                                 <!-- Header Buttons -->
                                 <ul class="header-btns">
-
-
                                     <!-- Header Cart Button -->
                                     <li class="header-cart-btn">
                                         <a href="/theme/#" title="View Cart">

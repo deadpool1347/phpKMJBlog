@@ -63,6 +63,8 @@ class SiteController extends \yii\web\Controller
 
     public function actionSignIn()
     {
+        echo "string";
+        die;
         $this->layout = 'auth';
 
         $sign_in = new SingInForm();
@@ -75,7 +77,7 @@ class SiteController extends \yii\web\Controller
     public function actionSignUp()
     {
         $this->layout = 'auth';
-
+        
         return $this->render('sign-up');
     }
 

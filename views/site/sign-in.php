@@ -30,7 +30,7 @@ use yii\widgets\ActiveForm;
 
             <div class="col-md-12">
                 <div class="form-group">
-                    <?= Html::submitButton('Воход', ['class' => 'btn btn-gfort']) ?>
+                    <?= Html::submitButton('Вход', ['class' => 'btn btn-gfort']) ?>
                 </div>
             </div>
 

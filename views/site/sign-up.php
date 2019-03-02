@@ -25,8 +25,8 @@ use yii\helpers\Url;
                 <!-- Form Group -->
                 <div class="form-group">
 
-                    <label for="account_form_email">Email Address</label>
-                    <input type="email" class="form-control" name="account_form_email" id="account_form_email">
+                    <label for="account_form_email">E-mail</label>
+                    <input type="email" class="form-control" name="account_form_email" id="email">
 
                 </div><!-- /End Form Group -->
             </div><!-- /End Email Address -->
@@ -36,8 +36,8 @@ use yii\helpers\Url;
             <div class="col-md-12">
                 <div class="form-group">
 
-                    <label for="account_form_name">Username</label>
-                    <input type="text" class="form-control" name="account_form_name" id="account_form_name">
+                    <label for="account_form_name">Имя пользователя</label>
+                    <input type="text" class="form-control" name="account_form_name" id="name">
 
                 </div>
             </div><!-- /End Username -->
@@ -47,7 +47,7 @@ use yii\helpers\Url;
             <div class="col-md-12">
                 <div class="form-group">
 
-                    <label for="account_form_password">Password</label>
+                    <label for="account_form_password">Пароль</label>
                     <input type="password" class="form-control" name="account_form_password" id="account_form_password">
 
                 </div>
