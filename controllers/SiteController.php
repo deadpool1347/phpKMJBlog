@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
+use yii\data\ActiveDataProvider;
 
 use app\models\SingInForm;
 use app\models\Article;
@@ -57,21 +58,29 @@ class SiteController extends \yii\web\Controller
     //     ]);
     // }
 
-    public function actionTest()
-    {
-        $article = new Article;
-        $article->title = 'Заголовок';
-        $article->content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in commodo sapien. In nulla felis, bibendum a elit vitae, porta pulvinar ex. Ut vulputate fringilla ipsum et commodo. Aliquam ut condimentum elit, a mollis metus.';
-        $article->save();
+    // public function actionTest()
+    // {
+    //     $article = new Article;
+    //     $article->title = 'Заголовок';
+    //     $article->content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in commodo sapien. In nulla felis, bibendum a elit vitae, porta pulvinar ex. Ut vulputate fringilla ipsum et commodo. Aliquam ut condimentum elit, a mollis metus.';
+    //     $article->save();
 
-
-        $article = Article::find()->where(['article.id' => 1])->joinWith(['user'])->all();
-        var_dump($article);
-    }
+    //     $article = Article::find()->where(['article.id' => 1])->all();
+    //     var_dump($article);
+    // }
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $dataProvider = new ActiveDataProvider([
+            'query' => Article::find(),
+            'pagination' => [
+                'pageSize' => 2,
+            ],
+        ]);
+
+        return $this->render('index', [
+            'dataProvider' => $dataProvider,
+        ]);
     }
 
     public function actionSignIn()
