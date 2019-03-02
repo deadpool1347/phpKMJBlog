@@ -59,10 +59,10 @@ class SiteController extends \yii\web\Controller
 
     public function actionTest()
     {
-        // $article = new Article;
-        // $article->title = 'Заголовок';
-        // $article->content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in commodo sapien. In nulla felis, bibendum a elit vitae, porta pulvinar ex. Ut vulputate fringilla ipsum et commodo. Aliquam ut condimentum elit, a mollis metus.';
-        // $article->save();
+        $article = new Article;
+        $article->title = 'Заголовок';
+        $article->content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in commodo sapien. In nulla felis, bibendum a elit vitae, porta pulvinar ex. Ut vulputate fringilla ipsum et commodo. Aliquam ut condimentum elit, a mollis metus.';
+        $article->save();
 
 
         $article = Article::find()->where(['article.id' => 1])->joinWith(['user'])->all();
