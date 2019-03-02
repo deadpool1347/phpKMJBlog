@@ -77,14 +77,14 @@
                 <!-- Widget Block Title -->
                 <!-- <div class="widget-block-title"> -->
                     <!-- <h6>instagram</h6> -->
-                <!-- </div><!-- /End Widget Block Title --> -->
+                <!-- </div><!-- /End Widget Block Title -->
                 <!-- Widget Block Body -->
                 <!-- <div class="widget-block-body"> -->
                     <!-- Instagram Feed Block -->
-                    <!-- <div class="instagram-feed-block" data-instagram-userid="2546719702" data-instagram-feed-count="6" data-instagram-accesstoken="2546719702.d9ac2e9.d35b2fa3fd0b41048d0717d100e21964"></div><!-- /End Instagram Feed Block --> -->
-                <!-- </div><!-- /End Widget Block Body --> -->
-            <!-- </div><!-- /End Widget Block Container --> -->
-        <!-- </div><!-- /End Widget Block ( Instagram ) --> -->
+                    <!-- <div class="instagram-feed-block" data-instagram-userid="2546719702" data-instagram-feed-count="6" data-instagram-accesstoken="2546719702.d9ac2e9.d35b2fa3fd0b41048d0717d100e21964"></div><!-- /End Instagram Feed Block -->
+                <!-- </div><!-- /End Widget Block Body -->
+            <!-- </div><!-- /End Widget Block Container -->
+        <!-- </div><!-- /End Widget Block ( Instagram ) -->
         <!-- Widget Block ( Categories ) -->
         <div class="widget-block widget-block-categories">
             <!-- Widget Block Container -->

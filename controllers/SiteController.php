@@ -6,6 +6,7 @@ use Yii;
 use yii\filters\AccessControl;
 
 use app\models\SingInForm;
+use app\models\Article;
 
 class SiteController extends \yii\web\Controller
 {
@@ -56,6 +57,18 @@ class SiteController extends \yii\web\Controller
     //     ]);
     // }
 
+    public function actionTest()
+    {
+        // $article = new Article;
+        // $article->title = 'Заголовок';
+        // $article->content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in commodo sapien. In nulla felis, bibendum a elit vitae, porta pulvinar ex. Ut vulputate fringilla ipsum et commodo. Aliquam ut condimentum elit, a mollis metus.';
+        // $article->save();
+
+
+        $article = Article::find()->where(['article.id' => 1])->joinWith(['user'])->all();
+        var_dump($article);
+    }
+
     public function actionIndex()
     {
         return $this->render('index');
@@ -63,8 +76,6 @@ class SiteController extends \yii\web\Controller
 
     public function actionSignIn()
     {
-        echo "string";
-        die;
         $this->layout = 'auth';
 
         $sign_in = new SingInForm();
@@ -77,7 +88,7 @@ class SiteController extends \yii\web\Controller
     public function actionSignUp()
     {
         $this->layout = 'auth';
-        
+
         return $this->render('sign-up');
     }
 

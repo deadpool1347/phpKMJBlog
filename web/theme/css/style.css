@@ -1693,7 +1693,7 @@ ul.portfolio-projects li a.portfolio-item-small-title,
    4. Main Wrapper
 ============================================================================= */
 #main-wrapper {
-    opacity: 0;
+    opacity: 1;
     padding: 0;
     z-index: 2;
     width: 100%;
