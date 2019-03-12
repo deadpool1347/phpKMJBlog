@@ -4,14 +4,7 @@ namespace app\models;
 
 use Yii;
 
-/**
- * This is the model class for table "article".
- *
- * @property int $id
- * @property string $title
- * @property string $content
- * @property string $created
- */
+
 class Article extends \yii\db\ActiveRecord
 {
     /**
@@ -45,5 +38,15 @@ class Article extends \yii\db\ActiveRecord
             'content' => 'Content',
             'created' => 'Created',
         ];
+    }
+
+    public function getComments()
+    {
+        return $this->hasMany(Comment::className(), ['article_id' => 'id']);
+    }
+
+    public function getUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 }

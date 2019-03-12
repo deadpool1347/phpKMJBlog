@@ -855,11 +855,11 @@ jQuery(document).ready(function () {
 
     /* Condition
     ------------------------------------------------------------------------- */
-    if (jQuery('.form-block').length) {
-        jQuery.getScript('/theme/js/plugins/validation/jquery.validate.min.js', function () {
-            gfortFormValidationfn();
-        });
-    }
+    // if (jQuery('.form-block').length) {
+    //     jQuery.getScript('/theme/js/plugins/validation/jquery.validate.min.js', function () {
+    //         gfortFormValidationfn();
+    //     });
+    // }
 
     /* recaptcha
     ------------------------------------------------------------------------- */

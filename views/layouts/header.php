@@ -3,8 +3,6 @@
 <header class="header-section fixed-header">
     <!-- Header Section Container -->
     <div class="header-section-container">
-
-
         <!-- Header Menu -->
         <div class="header-menu">
             <!-- Header Menu Container -->
@@ -19,8 +17,8 @@
                             <div class="col-md-12">
                                 <!-- Navbar Header / Logo -->
                                 <div class="navbar-header">
-                                    <a href="/theme/index.html" class="navbar-brand" title="PLUME">
-                                        <img src="/theme/images/logo.png" alt="PLUME Logo" />
+                                    <a href="/" class="navbar-brand" title="PLUME">
+                                        <img src="/theme/images/logo.png" alt="KMJBlog Logo" &nbsp />   <h1>KMJ Blog </h1>
                                     </a>
                                 </div><!-- /End Navbar Header / Logo -->
                                 <!-- Header Buttons -->
@@ -34,40 +32,26 @@
                                         <div class="header-cart">
                                             <!-- Header Cart Container -->
                                             <div class="header-cart-container">
-
-
                                                 <!-- Shop Products -->
                                                 <ul class="shop-products">
-
-
                                                     <!-- Product Item -->
                                                     <li>
-
                                                         <!-- Remove Button -->
                                                         <a href="/theme/#" class="remove-btn" title="Remove this item">&times;</a>
-
                                                         <!-- Item image -->
                                                         <a href="/theme/#" title="Eraser with wood plate" class="item-image overlay-hover scale-hover-2x">
                                                             <img src="/theme/images/header/header-cart/001.jpg" alt="Product Image" />
                                                         </a>
-
                                                         <!-- Shop Item Body -->
                                                         <div class="shop-item-body">
-
                                                             <!-- Title -->
                                                             <a href="/theme/#" title="Eraser with wood plate">Eraser with wood plate</a>
-
                                                             <!-- Quantity -->
                                                             <span class="quantity">1 &times; <span class="amount"><span class="currencySymbol">$</span>17</span></span>
-
                                                         </div><!-- /End Shop Item Body -->
-
                                                     </li><!-- /End Product Item -->
-
-
                                                     <!-- Product Item -->
                                                     <li>
-
                                                         <!-- Remove Button -->
                                                         <a href="/theme/#" class="remove-btn" title="Remove this item">&times;</a>
 
@@ -75,43 +59,28 @@
                                                         <a href="/theme/#" title="Pencil with wood stand" class="item-image overlay-hover scale-hover-2x">
                                                             <img src="/theme/images/header/header-cart/002.jpg" alt="Product Image" />
                                                         </a>
-
                                                         <!-- Shop Item Body -->
                                                         <div class="shop-item-body">
-
                                                             <!-- Title -->
                                                             <a href="/theme/#" title="Pencil with wood stand">Pencil with wood stand</a>
-
                                                             <!-- Quantity -->
                                                             <span class="quantity">2 &times; <span class="amount"><span class="currencySymbol">$</span>17</span></span>
-
                                                         </div><!-- /End Shop Item Body -->
-
                                                     </li><!-- /End Product Item -->
-
-
                                                 </ul><!-- /End Shop Products -->
-
-
                                                 <!-- Total Price -->
                                                 <p class="total-price">
                                                     <strong>Subtotal:</strong>
                                                     <span class="amount"><span class="currencySymbol">$</span>51</span>
                                                 </p><!-- /End Total Price -->
-
-
                                                 <!-- Buttons -->
                                                 <p class="buttons">
                                                     <a href="/theme/#" class="btn btn-gfort">View Cart</a>
                                                     <a href="/theme/#" class="btn btn-gfort">Checkout</a>
                                                 </p><!-- /End Buttons -->
-
-
                                             </div><!-- /End Header Cart Container -->
                                         </div><!-- /End Header Cart -->
                                     </li><!-- /End Header Cart Button -->
-
-
                                     <!-- Header Language Button -->
                                     <li class="header-lang-btn">
                                         <a href="/theme/#" title="English">EN</a>
