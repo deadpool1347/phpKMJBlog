@@ -13,9 +13,9 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'modules' => [
-    'modules' => [
-        'class' => 'app\modules\admin\admin',
-    ],
+        'admin' => [
+            'class' => 'app\modules\admin\admin',
+        ],
     ],
     'modules' => [
         'author' => [
