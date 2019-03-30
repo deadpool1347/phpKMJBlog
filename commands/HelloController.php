@@ -7,6 +7,7 @@
 
 namespace app\commands;
 
+use Yii;
 use yii\console\Controller;
 use yii\console\ExitCode;
 
@@ -27,8 +28,44 @@ class HelloController extends Controller
      */
     public function actionIndex($message = 'hello world')
     {
+
         echo $message . "\n";
 
         return ExitCode::OK;
     }
+
+    public function actionInit()
+   {
+       $auth = Yii::$app->authManager;
+
+       $admin = $auth->createRole('admin');
+       $author = $auth->createRole('author');
+       $user = $auth->createRole('user');
+       $inactive = $auth->createRole('inactive');
+
+       $auth->add($admin);
+       $auth->add($author);
+       $auth->add($user);
+       $auth->add($inactive);
+
+       $auth->addChild($user, $inactive);
+       $auth->addChild($author, $user);
+       $auth->addChild($admin, $author);
+
+       // добавляем разрешение "createPost"
+       $createArticle = $auth->createPermission('createArticle');
+       $createArticle->description = 'Добавление статьи';
+       $updateArticle = $auth->createPermission('updateArticle');
+       $updateArticle->description = 'Изменение статьи';
+       $deleteArticle = $auth->createPermission('deleteArticle');
+       $deleteArticle->description = 'Удаление статьи';
+
+       $auth->add($createArticle);
+       $auth->add($updateArticle);
+       $auth->add($deleteArticle);
+
+       $auth->addChild($author, $createArticle);
+       $auth->addChild($author, $updateArticle);
+       $auth->addChild($admin, $deleteArticle);
+   }
 }

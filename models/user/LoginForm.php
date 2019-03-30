@@ -1,13 +1,15 @@
 <?php
 
-namespace app\models;
+namespace app\models\user;
 
 use Yii;
 use yii\base\Model;
 
-class SingInForm extends Model
+use app\models\User;
+
+class LoginForm extends Model
 {
-    public $username;
+    public $login;
     public $password;
 
     private $_user = false;
@@ -16,10 +18,17 @@ class SingInForm extends Model
     {
         return [
             // username and password are both required
-            [['username', 'password'], 'required'],
-            [['username', 'password'], 'email'],
+            [['login', 'password'], 'required'],
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
+        ];
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'login' => 'Логин',
+            'password' => 'Пароль',
         ];
     }
 
@@ -29,7 +38,7 @@ class SingInForm extends Model
             $user = $this->getUser();
 
             if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, 'Incorrect username or password.');
+                $this->addError($attribute, 'Неправильный логин или пароль.');
             }
         }
     }
@@ -45,7 +54,7 @@ class SingInForm extends Model
     public function getUser()
     {
         if ($this->_user === false) {
-            $this->_user = User::findByUsername($this->username);
+            $this->_user = User::findByLogin($this->login);
         }
 
         return $this->_user;

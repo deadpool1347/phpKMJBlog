@@ -4,8 +4,11 @@ namespace app\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
+use yii\data\ActiveDataProvider;
+use yii\web\NotFoundHttpException;
 
-use app\models\SingInForm;
+use app\models\user\LoginForm;
+use app\models\user\RegForm;
 use app\models\Article;
 
 class SiteController extends \yii\web\Controller
@@ -56,6 +59,11 @@ class SiteController extends \yii\web\Controller
     //         'model' => $model,
     //     ]);
     // }
+    // public function actionTestBigMe()
+    // {
+    //     echo('hgfdsdfghjxthtp ---');
+    // }
+
 
     public function actionTest()
     {
@@ -65,37 +73,61 @@ class SiteController extends \yii\web\Controller
         $article->save();
 
 
-        $article = Article::find()->where(['article.id' => 1])->joinWith(['user'])->all();
+        $article = Article::find()->all();
         var_dump($article);
     }
 
     public function actionIndex()
     {
-        return $this->render('index');
-    }
-
-    public function actionSignIn()
-    {
-        $this->layout = 'auth';
-
-        $sign_in = new SingInForm();
-
-        return $this->render('sign-in', [
-            'sign_in' => $sign_in
+        $dataProvider = new ActiveDataProvider([
+          'query' => Article::find(),
+          'pagination' => [
+              'pageSize' => 5,
+          ],
+      ]);
+        return $this->render('index', [
+          'dataProvider' => $dataProvider,
         ]);
     }
 
-    public function actionSignUp()
+    public function actionLogin()
     {
-        $this->layout = 'auth';
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
 
-        return $this->render('sign-up');
+        $this->layout = 'auth';
+        $login = new LoginForm();
+
+        if ($login->load(Yii::$app->request->post()) && $login->login())
+        {
+            return $this->goHome();
+        }
+
+        return $this->render('login', [
+            'login' => $login
+        ]);
     }
 
-    // public function actionLogout()
-    // {
-    //     Yii::$app->user->logout();
+    public function actionReg()
+    {
+        $this->layout = 'auth';
+        $reg = new RegForm();
 
-    //     return $this->goHome();
-    // }
+        if($reg->load(Yii::$app->request->post()) && $reg->registrate())
+        {
+            return $this->goHome();
+        }
+
+        return $this->render('reg', [
+          'reg' => $reg
+        ]);
+    }
+
+    public function actionLogout()
+    {
+        Yii::$app->user->logout();
+
+        return $this->goHome();
+    }
 }

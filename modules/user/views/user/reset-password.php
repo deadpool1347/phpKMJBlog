@@ -20,26 +20,25 @@ use yii\widgets\ActiveForm;
                 </div>
             </div>
 
+            <?= $form->errorSummary($password) ?>
+
+
             <div class="col-md-12">
-                <?= $form->field($sign_in, 'username') ?>
+                <?= $form->field($password, 'password')->passwordInput() ?>
             </div>
 
             <div class="col-md-12">
-                <?= $form->field($sign_in, 'password')->passwordInput() ?>
+                <?= $form->field($password, 'password_ch')->passwordInput() ?>
             </div>
+
 
             <div class="col-md-12">
                 <div class="form-group">
-                    <?= Html::submitButton('Вход', ['class' => 'btn btn-gfort']) ?>
+                    <?= Html::submitButton('Сохранить', ['class' => 'btn btn-gfort']) ?>
                 </div>
             </div>
 
-            <div class="col-md-12">
-                <div class="form-block-title text-center">
-                    <h4>Если у вас нет аккаунта</h4>
-                    <a href="<?= Url::to(['/site/sign-up']) ?>" class="btn btn-gfort">Регистрация</a>
-                </div>
-            </div>
+
 
         <?php ActiveForm::end() ?>
 

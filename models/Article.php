@@ -4,27 +4,15 @@ namespace app\models;
 
 use Yii;
 
-/**
- * This is the model class for table "article".
- *
- * @property int $id
- * @property string $title
- * @property string $content
- * @property string $created
- */
+
 class Article extends \yii\db\ActiveRecord
 {
-    /**
-     * {@inheritdoc}
-     */
+
     public static function tableName()
     {
         return 'article';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function rules()
     {
         return [
@@ -34,16 +22,23 @@ class Article extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function attributeLabels()
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'content' => 'Content',
-            'created' => 'Created',
+            'title' => 'Статья',
+            'content' => 'Содержпние',
+            'created' => 'Создана',
         ];
+    }
+
+    public function getComments()
+    {
+        return $this->hasMany(Comment::className(), ['article_id' => 'id']);
+    }
+
+    public function getUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 }

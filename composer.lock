@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6b6d10f63fd0a86ff0be5f72c5114faa",
+    "content-hash": "ba09bd77915fa4519c59f13765285a05",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -267,6 +267,49 @@
                 "mailer"
             ],
             "time": "2018-07-31T09:26:32+00:00"
+        },
+        {
+            "name": "swods/randstring",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/swods/sw-randstring.git",
+                "reference": "80130ffbc7338c25aa84ad743820436dff6b1eec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/swods/sw-randstring/zipball/80130ffbc7338c25aa84ad743820436dff6b1eec",
+                "reference": "80130ffbc7338c25aa84ad743820436dff6b1eec",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "swods\\randstring\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "SSU (SwoDs)",
+                    "email": "etc@swods.ru"
+                }
+            ],
+            "description": "Generate random string",
+            "keywords": [
+                "random password",
+                "random sting",
+                "random sting generator",
+                "swods",
+                "yii2"
+            ],
+            "time": "2018-01-28T15:10:28+00:00"
         },
         {
             "name": "yiisoft/yii2",
@@ -1777,6 +1820,7 @@
                 "mock",
                 "xunit"
             ],
+            "abandoned": true,
             "time": "2018-08-09T05:50:03+00:00"
         },
         {
