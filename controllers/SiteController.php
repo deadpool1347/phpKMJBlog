@@ -7,8 +7,8 @@ use yii\filters\AccessControl;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
 
-use app\models\LoginForm;
-use app\models\RegForm;
+use app\models\user\LoginForm;
+use app\models\user\RegForm;
 use app\models\Article;
 
 class SiteController extends \yii\web\Controller
@@ -59,6 +59,11 @@ class SiteController extends \yii\web\Controller
     //         'model' => $model,
     //     ]);
     // }
+    // public function actionTestBigMe()
+    // {
+    //     echo('hgfdsdfghjxthtp ---');
+    // }
+
 
     public function actionTest()
     {

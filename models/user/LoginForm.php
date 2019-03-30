@@ -1,9 +1,11 @@
 <?php
 
-namespace app\models;
+namespace app\models\user;
 
 use Yii;
 use yii\base\Model;
+
+use app\models\User;
 
 class LoginForm extends Model
 {

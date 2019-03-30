@@ -29,9 +29,6 @@
                     <span class="item-meta-date">
                         <time datetime="2016-05-17">May 17, 2016</time>
                     </span>
-                    <span class="item-meta-category">
-                        <a href="#" title="Standard">Standard</a>
-                    </span>
                     <span class="item-meta-comments">
                         <a href="#"><i class="fa fa-comments-o"></i>3</a>
                     </span>

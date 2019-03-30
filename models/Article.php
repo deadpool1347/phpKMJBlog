@@ -7,17 +7,12 @@ use Yii;
 
 class Article extends \yii\db\ActiveRecord
 {
-    /**
-     * {@inheritdoc}
-     */
+
     public static function tableName()
     {
         return 'article';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function rules()
     {
         return [
@@ -27,16 +22,13 @@ class Article extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function attributeLabels()
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'content' => 'Content',
-            'created' => 'Created',
+            'title' => 'Статья',
+            'content' => 'Содержпние',
+            'created' => 'Создана',
         ];
     }
 

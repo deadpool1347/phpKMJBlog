@@ -2,26 +2,27 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\user */
-/* @var $form yii\widgets\ActiveForm */
+use app\models\AuthItem;
+
 ?>
 
-<div class="user-form">
+<?php $form = ActiveForm::begin(); ?>
+    <div class="col-md-12">
+        <?= $form->field($user, 'login')->textInput(['maxlength' => true]) ?>
+    </div><!-- /End Name -->
 
-    <?php $form = ActiveForm::begin(); ?>
+    <div class="col-md-12">
+        <?= $form->field($user, 'email')->textInput(['maxlength' => true]) ?>
+    </div><!-- /End Name -->
 
-    <?= $form->field($model, 'login')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+    <div class="col-md-12">
+        <?= $form->field($user, 'role')->dropDownList(ArrayHelper::map(AuthItem::findAll(['type' => 1]), 'name', 'description')) ?>
+    </div><!-- /End Name -->
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
     </div>
 
-    <?php ActiveForm::end(); ?>
-
-</div>
+<?php ActiveForm::end(); ?>

@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace app\models\user;
 
 use Yii;
 use yii\base\Model;
@@ -20,7 +20,7 @@ class RegForm extends Model
             // username and password are both required
             [['login', 'password', 'email', 'password_ch'], 'required'],
             // password is validated by validatePassword()
-            ['password', 'validatePassword'],
+            ['password_ch', 'validatePassword'],
             ['email', 'email'],
             ['email', 'validateEmail'],
             ['login', 'validateLogin'],

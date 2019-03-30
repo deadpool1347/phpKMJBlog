@@ -29,11 +29,10 @@ class Comment extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'article_id' => 'Article ID',
-            'parent_id' => 'Parent ID',
-            'user_id' => 'User ID',
-            'content' => 'Content',
-            'created' => 'Created',
+            'article_id' => 'ID Статьи',
+            'user_id' => 'ID Пользователя',
+            'content' => 'Содержание',
+            'created' => 'Созданна',
         ];
     }
 

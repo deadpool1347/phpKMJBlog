@@ -1,9 +1,11 @@
 <?php
 
+use app\models\Comment;
+
 use yii\helpers\Html;
 use yii\grid\GridView;
 
-$this->title = 'Статьи';
+$this->title = 'Комментарии';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -18,35 +20,36 @@ $this->params['breadcrumbs'][] = $this->title;
     </div><!-- /End Alert -->
 <?php endif; ?>
 
-<p>
-    <?= Html::a('Добавить статью', ['create'], ['class' => 'btn btn-success']) ?>
-</p>
-
 <?= GridView::widget([
     'dataProvider' => $dataProvider,
     'columns' => [
-        'id',
-        'title',
         [
-            'attribute' => 'created',
-            'value' => function($article) {
-                return  date('d.m.Y', strtotime($article->created));
-            }
+            'attribute' => 'article.title',
+            'header' => 'Название',
+
         ],
         [
             'attribute' => 'user.login',
-
+            'header' => 'login',
         ],
+        'content',
+        [
+            'attribute' => 'created',
+            'value' => function($comment) {
+                return  date('d.m.Y', strtotime($comment->created));
+            }
+        ],
+
         [
             'class' => 'yii\grid\ActionColumn',
             'template' => '{update} {delete}',
             'buttons' => [
-                'update' => function($url, $article) {
-                    return Html::a('<span class="glyphicon glyphicon-pencil"></span>', ['/author/article/update', 'id' => $article->id]);
+                'update' => function($url, $comment) {
+                    return Html::a('<span class="glyphicon glyphicon-pencil"></span>', ['/admin/comment/update', 'id' => $comment->id]);
                 },
-                'delete' => function($url, $article) {
+                'delete' => function($url, $comment) {
                     if (Yii::$app->user->can('admin')) {
-                        return Html::a('<span class="glyphicon glyphicon-trash"></span>', ['/author/article/delete', 'id' => $article->id]);
+                        return Html::a('<span class="glyphicon glyphicon-trash"></span>', ['/admin/comment/delete', 'id' => $comment->id]);
                     }
                 },
             ]

@@ -13,13 +13,14 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'modules' => [
+        'author' => [
+            'class' => 'app\modules\author\Module',
+        ],
         'admin' => [
             'class' => 'app\modules\admin\admin',
         ],
-    ],
-    'modules' => [
-        'author' => [
-            'class' => 'app\modules\author\Module',
+        'user' => [
+            'class' => 'app\modules\user\Module',
         ],
     ],
     'components' => [

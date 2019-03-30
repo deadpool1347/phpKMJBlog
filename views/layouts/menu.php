@@ -11,7 +11,6 @@ use yii\helpers\Url;
         <li><a href="<?= Url::to(['/']) ?>">Главная</a></li>
         <!-- <li><a href="/theme/index.html">Личный кабинет</a></li> -->
 
-
         <?php if (Yii::$app->user->can('author')) : ?>
         <li>
             <a href="#">Управление</a>
@@ -19,7 +18,7 @@ use yii\helpers\Url;
                 <li><a href="<?= Url::to(['/author/article/index']) ?>">Статьи</a></li>
                 <?php if (Yii::$app->user->can('admin')) : ?>
                 <li><a href="<?= Url::to(['/admin/user/index']) ?>">Пользователи</a></li>
-                <li><a href="#">Комментарии</a></li>
+                <li><a href="<?= Url::to(['/admin/comment/index']) ?>">Комментарии</a></li>
                 <li><a href="#">Черный список</a></li>
                 <?php endif; ?>
             </ul>
@@ -27,9 +26,14 @@ use yii\helpers\Url;
         <?php endif; ?>
 
         <?php if (Yii::$app->user->isGuest) : ?>
-          <li><a href="<?= Url::to(['/site/login']) ?>">Войти</a></li>
+            <li><a href="<?= Url::to(['/site/login']) ?>">Войти</a></li>
         <?php else : ?>
-          <li><a href="<?= Url::to(['/site/logout']) ?>"> Выйти (<?= Yii::$app->user->identity->login ?>)</a></li>
+            <li>
+                <a href="#"><?= Yii::$app->user->identity->login ?></a>
+                <ul class="submenu">
+                    <li><a href="<?= Url::to(['/user/user/reset-password']) ?>">Сменить пароль</a></li>
+                    <li><a href="<?= Url::to(['/site/logout']) ?>">Выйти</a></li>
+            </li>
         <?php endif; ?>
     </ul>
 </div><!-- /End Navbar Collapse (Menu) -->

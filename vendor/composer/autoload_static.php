@@ -28,6 +28,10 @@ class ComposerStaticInit32b681755396bd8d47a6274cecbb4b27
             'yii\\bootstrap\\' => 14,
             'yii\\' => 4,
         ),
+        's' => 
+        array (
+            'swods\\randstring\\' => 17,
+        ),
         'p' => 
         array (
             'phpDocumentor\\Reflection\\' => 25,
@@ -105,6 +109,10 @@ class ComposerStaticInit32b681755396bd8d47a6274cecbb4b27
         'yii\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2',
+        ),
+        'swods\\randstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/swods/randstring',
         ),
         'phpDocumentor\\Reflection\\' => 
         array (

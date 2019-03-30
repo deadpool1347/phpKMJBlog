@@ -27,13 +27,13 @@ class AppAsset extends AssetBundle
         'css/responsive.css',
     ];
     public $js = [
-        'js/vendor/jquery.min.js',
+        // 'js/vendor/jquery.min.js',
         'js/vendor/bootstrap/js/bootstrap.min.js',
         'js/plugins.js',
         'js/scripts.js',
     ];
     public $depends = [
-        // 'yii\web\YiiAsset',
+        'yii\web\YiiAsset',
         // 'yii\bootstrap\BootstrapAsset',
     ];
 }

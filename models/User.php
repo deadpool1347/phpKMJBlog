@@ -4,6 +4,7 @@ namespace app\models;
 
 class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
+
     public static function tableName()
     {
       return 'user';
@@ -12,9 +13,10 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     public function rules()
     {
         return [
-            [['login', 'password', 'email'], 'required'],
-            [['login', 'email'], 'string', 'max' => 50],
-            [['password'], 'string', 'max' => 255],
+            // [['login', 'email'], 'required'],
+            // ['password', 'required', 'except' => 'user_update'],
+            // [['login', 'email'], 'string', 'max' => 50],
+            // [['password'], 'string', 'max' => 255],
         ];
     }
 
@@ -22,12 +24,14 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         return [
             'id' => 'ID',
-            'login' => 'Login',
-            'password' => 'Password',
-            'email' => 'Email',
-            'created' => 'Created',
+            'login' => 'Логин',
+            'password' => 'Пароль',
+            'email' => 'E-mail',
+            'created' => 'Создан',
+            'active' => 'Активные',
         ];
     }
+
 
     public static function findByLogin($login)
     {
@@ -53,6 +57,28 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         return $this->hasMany(Comment::className(), ['user_id' => 'id']);
     }
+
+    public function getArticles()
+    {
+       return $this->hasMany(Article::className(), ['user_id' => 'id']);
+    }
+
+    public function getAuthAssignment()
+    {
+       return $this->hasOne(AuthAssignment::className(), ['user_id' => 'id']);
+    }
+
+
+
+
+
+
+
+    public function getItemName()
+    {
+       return $this->hasOne(AuthItem::className(), ['name' => 'item_name'])->viaTable('auth_assignment', ['user_id' => 'id']);
+    }
+
 
     public function getAuthKey() {}
     public function validateAuthKey($authKey) {}
