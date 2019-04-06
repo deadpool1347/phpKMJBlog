@@ -40,6 +40,7 @@ class CommentController extends Controller
 
         return $this->render('update', [
             'comment' => $comment,
+            'title' => 'Изменение комментария',
         ]);
     }
 

@@ -79,9 +79,10 @@ class SiteController extends \yii\web\Controller
     public function actionIndex($search = null)
     {
         $query = Article::find()
-            ->joinWith(['user'])
+            ->joinWith(['user', 'theme'])
             ->orFilterWhere(['like', 'article.title', $search])
-            ->orFilterWhere(['like', 'user.login', $search]);
+            ->orFilterWhere(['like', 'user.login', $search])
+            ->orFilterWhere(['like', 'theme.name', $search]);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -89,7 +90,7 @@ class SiteController extends \yii\web\Controller
                 'pageSize' => 5,
             ],
         ]);
-
+        
         return $this->render('index', [
           'dataProvider' => $dataProvider,
         ]);

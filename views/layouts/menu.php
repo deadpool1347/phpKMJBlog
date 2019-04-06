@@ -19,7 +19,7 @@ use yii\helpers\Url;
                 <?php if (Yii::$app->user->can('admin')) : ?>
                 <li><a href="<?= Url::to(['/admin/user/index']) ?>">Пользователи</a></li>
                 <li><a href="<?= Url::to(['/admin/comment/index']) ?>">Комментарии</a></li>
-                <li><a href="#">Черный список</a></li>
+                <!-- <li><a href="#">Черный список</a></li> -->
                 <?php endif; ?>
             </ul>
         </li>

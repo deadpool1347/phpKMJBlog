@@ -12,9 +12,10 @@ class UpdateForm extends \app\models\User
     public function rules()
     {
         return [
-            [['login', 'email', 'role'], 'required'],
+            [['login', 'email', 'role', 'active'], 'required'],
             [['login', 'email'], 'string', 'max' => 50],
             ['email', 'email'],
+            ['active', 'in', 'range' => [1,2]],
         ];
     }
 

@@ -27,9 +27,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'rowOptions' => function($user) {
-            return [
-                'style' => $user->active ? '' : 'background-color:#ccadad;',
-            ];
+            if (!$user->active) {
+                return ['style' => 'background-color:#e6b1b1;'];
+            }
         },
         'columns' => [
             'id',

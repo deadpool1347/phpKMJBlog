@@ -12,6 +12,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'user' => $user,
+        'title' => 'Добавление новго пользователя',
+
     ]) ?>
 
 </div>

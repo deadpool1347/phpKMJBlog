@@ -29,6 +29,7 @@ use yii\helpers\Html;
                                 </div><!-- /End Navbar Header / Logo -->
                                 
                                 <ul class="header-btns">
+
                                     <li class="header-search-btn">
                                         <a class="form-open-btn">
                                             <i class="fa fa-search"></i>
@@ -55,15 +56,22 @@ use yii\helpers\Html;
                     <!-- Form Block Container -->
                     <div class="form-block-container">
                         <!-- Form -->
+                        
                         <?= Html::beginForm(['/'], 'get'); ?>
-
                             <!-- col-md-12 -->
                             <div class="col-md-12">
                                 <!-- Form Group -->
-                                <div class="form-group">
 
-                                    <!-- Close Button -->
-                                    <a href="/theme/#" class="form-close-btn">&times;</a>
+                                    <div class="form-group">
+                                        <!-- Close Button -->
+                                        <a href="/theme/#" class="form-close-btn">&times;</a>
+                                        <?= Html::textInput('search', null, [
+                                            'class' => 'form-control',
+                                            'placeholder' => 'Пожалуйста введите значение' ,
+                                            'autocomplete' =>'off',
+                                            ]) ?>
+                                        <!-- <input type="text" class="form-control" placeholder="Type then hit enter to search..." name="s" autocomplete="off"> -->
+                                    </div><!-- /End Form Group -->
 
                                     <?= Html::textInput('search', null, [
                                         'class' => 'form-control',
@@ -75,6 +83,7 @@ use yii\helpers\Html;
                             </div><!-- /End col-md-12 -->
 
                         <?= Html::endForm(); ?>
+
                     </div><!-- /End Form Block Container -->
                 </div><!-- /End Header Search Form Block -->
 

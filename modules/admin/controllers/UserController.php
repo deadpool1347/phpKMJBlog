@@ -78,12 +78,10 @@ class UserController extends Controller
 
     public function actionDelete($id)
     {
-        $this->active = 0;
-        $this->findModel($id)->save();
-        if ($user->load(Yii::$app->request->post()) && $user->save()) {
-            Yii::$app->session->setFlash('succes');
-            return $this->redirect(['index']);
-        }
+        $user = $this->findModel($id);
+        $user->active = 0;
+        $user->save(false);
+
         return $this->redirect(['index']);
     }
 

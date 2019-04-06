@@ -13,32 +13,31 @@
 
 
 -- Дамп структуры базы данных kmjblog
-DROP DATABASE IF EXISTS `kmjblog`;
 CREATE DATABASE IF NOT EXISTS `kmjblog` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `kmjblog`;
 
 -- Дамп структуры для таблица kmjblog.article
-DROP TABLE IF EXISTS `article`;
 CREATE TABLE IF NOT EXISTS `article` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
+  `theme_id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `content` text NOT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `FK_article_user` (`user_id`),
+  KEY `FK_article_theme` (`theme_id`),
+  CONSTRAINT `FK_article_theme` FOREIGN KEY (`theme_id`) REFERENCES `theme` (`id`),
   CONSTRAINT `FK_article_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы kmjblog.article: ~2 rows (приблизительно)
+-- Дамп данных таблицы kmjblog.article: ~1 rows (приблизительно)
 /*!40000 ALTER TABLE `article` DISABLE KEYS */;
-INSERT INTO `article` (`id`, `user_id`, `title`, `content`, `created`) VALUES
-	(13, 1, '12345', '123456', '2019-03-09 17:00:29'),
-	(14, 1, 'курить', 'курить пацанф', '2019-03-09 19:24:25');
+INSERT INTO `article` (`id`, `user_id`, `theme_id`, `title`, `content`, `created`) VALUES
+	(13, 1, 1, '12345', '123456', '2019-03-09 17:00:29');
 /*!40000 ALTER TABLE `article` ENABLE KEYS */;
 
 -- Дамп структуры для таблица kmjblog.auth_assignment
-DROP TABLE IF EXISTS `auth_assignment`;
 CREATE TABLE IF NOT EXISTS `auth_assignment` (
   `item_name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -55,12 +54,11 @@ INSERT INTO `auth_assignment` (`item_name`, `user_id`, `created_at`) VALUES
 	('admin', 1, NULL),
 	('admin', 6, NULL),
 	('admin', 8, NULL),
-	('author', 2, NULL),
-	('inactive', 9, NULL);
+	('admin', 9, NULL),
+	('author', 2, NULL);
 /*!40000 ALTER TABLE `auth_assignment` ENABLE KEYS */;
 
 -- Дамп структуры для таблица kmjblog.auth_item
-DROP TABLE IF EXISTS `auth_item`;
 CREATE TABLE IF NOT EXISTS `auth_item` (
   `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `type` smallint(6) NOT NULL,
@@ -88,7 +86,6 @@ INSERT INTO `auth_item` (`name`, `type`, `description`, `rule_name`, `data`, `cr
 /*!40000 ALTER TABLE `auth_item` ENABLE KEYS */;
 
 -- Дамп структуры для таблица kmjblog.auth_item_child
-DROP TABLE IF EXISTS `auth_item_child`;
 CREATE TABLE IF NOT EXISTS `auth_item_child` (
   `parent` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `child` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
@@ -110,7 +107,6 @@ INSERT INTO `auth_item_child` (`parent`, `child`) VALUES
 /*!40000 ALTER TABLE `auth_item_child` ENABLE KEYS */;
 
 -- Дамп структуры для таблица kmjblog.auth_rule
-DROP TABLE IF EXISTS `auth_rule`;
 CREATE TABLE IF NOT EXISTS `auth_rule` (
   `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `data` blob,
@@ -124,7 +120,6 @@ CREATE TABLE IF NOT EXISTS `auth_rule` (
 /*!40000 ALTER TABLE `auth_rule` ENABLE KEYS */;
 
 -- Дамп структуры для таблица kmjblog.comment
-DROP TABLE IF EXISTS `comment`;
 CREATE TABLE IF NOT EXISTS `comment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `article_id` int(11) NOT NULL,
@@ -139,16 +134,15 @@ CREATE TABLE IF NOT EXISTS `comment` (
   CONSTRAINT `FK_comment_article` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`),
   CONSTRAINT `FK_comment_comment` FOREIGN KEY (`parent_id`) REFERENCES `comment` (`id`),
   CONSTRAINT `FK_comment_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы kmjblog.comment: ~1 rows (приблизительно)
 /*!40000 ALTER TABLE `comment` DISABLE KEYS */;
 INSERT INTO `comment` (`id`, `article_id`, `parent_id`, `user_id`, `content`, `created`) VALUES
-	(2, 13, NULL, 1, 'Хорошая статья, спасибo', '2019-03-19 12:20:34');
+	(3, 13, NULL, 1, 'hrifewkdmq', '2019-04-01 13:08:05');
 /*!40000 ALTER TABLE `comment` ENABLE KEYS */;
 
 -- Дамп структуры для таблица kmjblog.migration
-DROP TABLE IF EXISTS `migration`;
 CREATE TABLE IF NOT EXISTS `migration` (
   `version` varchar(180) NOT NULL,
   `apply_time` int(11) DEFAULT NULL,
@@ -164,8 +158,20 @@ INSERT INTO `migration` (`version`, `apply_time`) VALUES
 	('m180523_151638_rbac_updates_indexes_without_prefix', 1552048245);
 /*!40000 ALTER TABLE `migration` ENABLE KEYS */;
 
+-- Дамп структуры для таблица kmjblog.theme
+CREATE TABLE IF NOT EXISTS `theme` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` char(50) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- Дамп данных таблицы kmjblog.theme: ~1 rows (приблизительно)
+/*!40000 ALTER TABLE `theme` DISABLE KEYS */;
+INSERT INTO `theme` (`id`, `name`) VALUES
+	(1, 'Informatic');
+/*!40000 ALTER TABLE `theme` ENABLE KEYS */;
+
 -- Дамп структуры для таблица kmjblog.user
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(50) NOT NULL,
@@ -181,8 +187,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 INSERT INTO `user` (`id`, `login`, `password`, `email`, `created`, `active`) VALUES
 	(1, 'admin', 'admin', 'admin@com.ru', '2019-03-03 15:27:07', '1'),
 	(2, 'author', 'author', 'fuu@ya.ru', '2019-03-06 02:30:10', '1'),
-	(6, 't', '', 't@mail.ru', '2019-03-16 15:33:58', '1'),
-	(8, 'testrtt555', '', 'TEST@YA.RU', '2019-03-16 16:01:52', '1'),
+	(6, 't', '', 't@mail.ru', '2019-03-16 15:33:58', '0'),
+	(8, 'testrtt555', '', 'TEST@YA.RU', '2019-03-16 16:01:52', '0'),
 	(9, 'esdawsqd', 'UlPmr', 'TEST@YA.RU', '2019-03-17 14:27:37', '1');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
