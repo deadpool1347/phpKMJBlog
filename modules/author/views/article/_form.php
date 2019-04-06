@@ -6,6 +6,8 @@ use yii\widgets\ActiveForm;
 
 ?>
 
+<script src="/plugins/ckeditor/ckeditor.js"></script>
+
 <?php $form = ActiveForm::begin() ?>
     <!-- Name -->
     <div class="col-md-12">
@@ -15,7 +17,7 @@ use yii\widgets\ActiveForm;
     <!-- Email Address -->
     <div class="col-md-12">
         <!-- Form Group -->
-          <?= $form->field($article, 'content')->textarea() ?>
+          <?= $form->field($article, 'content')->textarea(['id' => 'editor']) ?>
     </div><!-- /End Email Address -->
     <!-- Submit Button -->
     <div class="col-md-12">
@@ -29,3 +31,8 @@ use yii\widgets\ActiveForm;
 
 
 <?php ActiveForm::end() ?>
+
+
+<script>
+    CKEDITOR.replace('editor');
+</script>

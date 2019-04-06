@@ -64,7 +64,6 @@ class SiteController extends \yii\web\Controller
     //     echo('hgfdsdfghjxthtp ---');
     // }
 
-
     public function actionTest()
     {
         $article = new Article;
@@ -77,14 +76,20 @@ class SiteController extends \yii\web\Controller
         var_dump($article);
     }
 
-    public function actionIndex()
+    public function actionIndex($search = null)
     {
+        $query = Article::find()
+            ->joinWith(['user'])
+            ->orFilterWhere(['like', 'article.title', $search])
+            ->orFilterWhere(['like', 'user.login', $search]);
+
         $dataProvider = new ActiveDataProvider([
-          'query' => Article::find(),
-          'pagination' => [
-              'pageSize' => 5,
-          ],
-      ]);
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => 5,
+            ],
+        ]);
+
         return $this->render('index', [
           'dataProvider' => $dataProvider,
         ]);

@@ -23,13 +23,26 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Создать пользователя', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-<?= GridView::widget([
+    <?= GridView::widget([
         'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'rowOptions' => function($user) {
+            return [
+                'style' => $user->active ? '' : 'background-color:#ccadad;',
+            ];
+        },
         'columns' => [
             'id',
             'password',
             'email:email',
-            'active',
+            [
+                'attribute' => 'active',
+                'filter' => [0 => 'Не активнй', 1 => 'Активный'],
+                'format' => 'raw',
+                'value' => function($user) {
+                    return  $user->active ? '<span class="text-success">Активен</span>' : '<span class="text-danger">Не активен</span>';
+                },
+            ],
             [
                 'attribute' => 'created',
                 'value' => function($user) {
