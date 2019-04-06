@@ -1,3 +1,7 @@
+<?php
+use yii\helpers\Html;
+ ?>
+
 <!-- Header Section
 ==================================================================== -->
 <header class="header-section fixed-header">
@@ -24,91 +28,9 @@
                                 <!-- Header Buttons -->
                                 <ul class="header-btns">
                                     <!-- Header Cart Button -->
-                                    <li class="header-cart-btn">
-                                        <a href="/theme/#" title="View Cart">
-                                            <i class="fa fa-shopping-bag"></i><span class="badge">2</span>
-                                        </a>
-                                        <!-- Header Cart -->
-                                        <div class="header-cart">
-                                            <!-- Header Cart Container -->
-                                            <div class="header-cart-container">
-                                                <!-- Shop Products -->
-                                                <ul class="shop-products">
-                                                    <!-- Product Item -->
-                                                    <li>
-                                                        <!-- Remove Button -->
-                                                        <a href="/theme/#" class="remove-btn" title="Remove this item">&times;</a>
-                                                        <!-- Item image -->
-                                                        <a href="/theme/#" title="Eraser with wood plate" class="item-image overlay-hover scale-hover-2x">
-                                                            <img src="/theme/images/header/header-cart/001.jpg" alt="Product Image" />
-                                                        </a>
-                                                        <!-- Shop Item Body -->
-                                                        <div class="shop-item-body">
-                                                            <!-- Title -->
-                                                            <a href="/theme/#" title="Eraser with wood plate">Eraser with wood plate</a>
-                                                            <!-- Quantity -->
-                                                            <span class="quantity">1 &times; <span class="amount"><span class="currencySymbol">$</span>17</span></span>
-                                                        </div><!-- /End Shop Item Body -->
-                                                    </li><!-- /End Product Item -->
-                                                    <!-- Product Item -->
-                                                    <li>
-                                                        <!-- Remove Button -->
-                                                        <a href="/theme/#" class="remove-btn" title="Remove this item">&times;</a>
 
-                                                        <!-- Item image -->
-                                                        <a href="/theme/#" title="Pencil with wood stand" class="item-image overlay-hover scale-hover-2x">
-                                                            <img src="/theme/images/header/header-cart/002.jpg" alt="Product Image" />
-                                                        </a>
-                                                        <!-- Shop Item Body -->
-                                                        <div class="shop-item-body">
-                                                            <!-- Title -->
-                                                            <a href="/theme/#" title="Pencil with wood stand">Pencil with wood stand</a>
-                                                            <!-- Quantity -->
-                                                            <span class="quantity">2 &times; <span class="amount"><span class="currencySymbol">$</span>17</span></span>
-                                                        </div><!-- /End Shop Item Body -->
-                                                    </li><!-- /End Product Item -->
-                                                </ul><!-- /End Shop Products -->
-                                                <!-- Total Price -->
-                                                <p class="total-price">
-                                                    <strong>Subtotal:</strong>
-                                                    <span class="amount"><span class="currencySymbol">$</span>51</span>
-                                                </p><!-- /End Total Price -->
-                                                <!-- Buttons -->
-                                                <p class="buttons">
-                                                    <a href="/theme/#" class="btn btn-gfort">View Cart</a>
-                                                    <a href="/theme/#" class="btn btn-gfort">Checkout</a>
-                                                </p><!-- /End Buttons -->
-                                            </div><!-- /End Header Cart Container -->
-                                        </div><!-- /End Header Cart -->
-                                    </li><!-- /End Header Cart Button -->
                                     <!-- Header Language Button -->
-                                    <li class="header-lang-btn">
-                                        <a href="/theme/#" title="English">EN</a>
-                                        <!-- Header Language Menu -->
-                                        <nav class="header-language-menu">
-                                            <ul>
 
-                                                <li>
-                                                    <a href="/theme/#" title="French">
-                                                        <img src="/theme/images/header/header-lang-flags/fr.jpg" alt="French">Fr
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="/theme/#" title="Deutsch">
-                                                        <img src="/theme/images/header/header-lang-flags/ge.jpg" alt="Deutsch">De
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="/theme/#" title="Italian">
-                                                        <img src="/theme/images/header/header-lang-flags/it.jpg" alt="Italian">It
-                                                    </a>
-                                                </li>
-
-                                            </ul>
-                                        </nav><!-- /End Header Language Menu -->
-                                    </li><!-- /End Header Language Button -->
 
 
                                     <!-- Header Search Button -->
@@ -142,24 +64,25 @@
                     <!-- Form Block Container -->
                     <div class="form-block-container">
                         <!-- Form -->
-                        <form method="get" action="search-results.html">
-
-
+                        <?= Html::beginForm(['/'], 'get') ?>
                             <!-- col-md-12 -->
                             <div class="col-md-12">
                                 <!-- Form Group -->
-                                <div class="form-group">
 
-                                    <!-- Close Button -->
-                                    <a href="/theme/#" class="form-close-btn">&times;</a>
+                                    <div class="form-group">
+                                        <!-- Close Button -->
+                                        <a href="/theme/#" class="form-close-btn">&times;</a>
+                                        <?= Html::textInput('search', null, [
+                                            'class' => 'form-control',
+                                            'placeholder' => 'Пожалуйста введите значение' ,
+                                            'autocomplete' =>'off',
+                                            ]) ?>
+                                        <!-- <input type="text" class="form-control" placeholder="Type then hit enter to search..." name="s" autocomplete="off"> -->
+                                    </div><!-- /End Form Group -->
 
-                                    <input type="text" class="form-control" placeholder="Type then hit enter to search..." name="s" autocomplete="off">
-
-                                </div><!-- /End Form Group -->
                             </div><!-- /End col-md-12 -->
 
-
-                        </form><!-- /End Form -->
+                        <?= Html::endForm()?>
                     </div><!-- /End Form Block Container -->
                 </div><!-- /End Header Search Form Block -->
 

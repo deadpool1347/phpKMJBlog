@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 
-$this->title = 'Изменить пользователя: ' . $user->id;
+$this->title = 'Изменить пользователя: ' . $user->login;
 $this->params['breadcrumbs'][] = ['label' => 'Users', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $user->id, 'url' => ['view', 'id' => $user->id]];
 $this->params['breadcrumbs'][] = 'Update';
@@ -13,6 +13,7 @@ $this->params['breadcrumbs'][] = 'Update';
 
     <?= $this->render('_form', [
         'user' => $user,
+        'title' => 'Редактирование пользователя',
     ]) ?>
 
 </div>

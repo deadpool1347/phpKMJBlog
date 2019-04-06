@@ -6,6 +6,7 @@
             <!-- Form -->
             <?= $this->render('_form', [
               'article' => $article,
+              'title' => 'Редактирование статьи',
               ]) ?>
         </div><!-- /End Form Block Container -->
     </div><!-- /End Contact Form Block -->

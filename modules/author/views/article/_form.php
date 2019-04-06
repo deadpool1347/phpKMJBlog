@@ -8,6 +8,7 @@ use yii\widgets\ActiveForm;
 
 <?php $form = ActiveForm::begin() ?>
     <!-- Name -->
+    <h1><?= $title ?></h1>
     <div class="col-md-12">
         <?= $form->field($article, 'title') ?>
     </div><!-- /End Name -->

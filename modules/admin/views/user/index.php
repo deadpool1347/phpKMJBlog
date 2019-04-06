@@ -25,6 +25,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <?= GridView::widget([
         'dataProvider' => $dataProvider,
+        'rowOptions' => function($user) {
+            if (!$user->active) {
+                return ['style' => 'background-color:#e6b1b1;'];
+            }
+        },
         'columns' => [
             'id',
             'password',

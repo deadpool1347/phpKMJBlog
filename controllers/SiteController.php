@@ -77,10 +77,14 @@ class SiteController extends \yii\web\Controller
         var_dump($article);
     }
 
-    public function actionIndex()
+    public function actionIndex($search = null)
     {
         $dataProvider = new ActiveDataProvider([
-          'query' => Article::find(),
+          'query' => Article::find()
+            ->joinWith(['user', 'theme'])
+            ->orFilterWhere(['like', 'article.title', $search])
+            ->orFilterWhere(['like', 'user.login', $search])
+            ->orFilterWhere(['like', 'theme.name', $search]),
           'pagination' => [
               'pageSize' => 5,
           ],

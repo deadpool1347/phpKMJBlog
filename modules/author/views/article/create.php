@@ -6,10 +6,11 @@
             <!-- Form -->
             <div class="col-md-12">
                 <!-- Alert -->
-                
+
             </div><!-- /End col-md-12 -->
           <?= $this->render('_form', [
             'article' => $article,
+            'title' => 'Добавление статьи',
             ]) ?>
         </div><!-- /End Form Block Container -->
     </div><!-- /End Contact Form Block -->

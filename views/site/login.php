@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
 
             <div class="col-md-12">
                 <div class="form-block-title text-center">
-                    <h4>Great to have you back!</h4>
+                    <h4>Здорово, что ты вернулся!</h4>
                 </div>
             </div>
 

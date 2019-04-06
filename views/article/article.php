@@ -49,14 +49,14 @@
                 <!-- Blog item Description -->
                 <div class="blog-item-description">
 
-                    <p>They had not gone far before they saw the Mock Turtle in the distance, sitting sad and lonely on a little ledge of rock, and, as they came nearer, Alice could hear him sighing as if his heart would break. She pitied him deeply. What is his sorrow? she asked the Gryphon, and the Gryphon answered, very nearly in the same words as before, 'It's all his fancy, that: he hasn't got no sorrow, you know. Come on!'</p>
+                    <p>They had not gone far before they saw the Mock Turtle in the distance, sitting sad and lonely on a little ledge of rock, and, as they came nearer, Alice could hear him sighing as if his heart would break. She pitied him deeply. What is his sorrow? she aske'</p>
 
                     <blockquote>
                         <p>We’re gambling on our vision, and we would rather do that than make “me, too” products. Let some other companies do that. For us, it’s always the next dream.</p>
                         <footer>Steve Jobs</footer>
                     </blockquote>
 
-                    <p><img class="alignleft" src="/theme/images/blog/single/002.jpg" alt="Things" />So they went up to the Mock Turtle, who looked at them with large eyes full of tears, but said nothing. This here young lady, said the Gryphon, she wants for to know your history, she do. I'll tell it her, said the Mock Turtle in a deep, hollow tone: sit down, both of you, and don't speak a word till I've finished. So they sat down, and nobody spoke for some minutes. Alice thought to herself, I don't see how he can even finish, if he doesn't begin. But she waited patiently. Once, said the Mock Turtle at last, with a deep sigh, I was a real Turtle. These words were followed by a very long silence, broken only by an occasional exclamation of Hjckrrh! from the Gryphon, and the constant heavy sobbing of the Mock Turtle. Alice was very nearly getting up and saying, Thank you, sir, for your interesting story, but she could not help thinking there must be more to come, so she sat still and said nothing.</p>
+                    <p><img class="alignleft" src="/theme/images/blog/single/002.jpg" alt="Things" />So they went up to the Mock Turtle, who looked at them with large eyes full of tears,  she sat still and said nothing.</p>
 
                     <p>When we were little, the Mock Turtle went on at last, more calmly, though still sobbing a little now and then, we went to school in the sea. The master was an old Turtle--we used to call him Tortoise. Why did you call him Tortoise, if he wasn't one? Alice asked.</p>
 

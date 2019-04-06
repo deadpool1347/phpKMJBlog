@@ -6,6 +6,7 @@
             <!-- Form -->
             <?= $this->render('_form', [
               'comment' => $comment,
+              'title' => 'Изменение комментария',
               ]) ?>
         </div><!-- /End Form Block Container -->
     </div><!-- /End Contact Form Block -->
