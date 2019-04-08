@@ -612,246 +612,238 @@ jQuery(document).ready(function () {
     ========================================================================= */
     /* Main Function
     ------------------------------------------------------------------------- */
-    function gfortFormValidationfn() {
-        jQuery('.form-block').each(function () {
+    // function gfortFormValidationfn() {
+    //     jQuery('.form-block').each(function () {
 
-            var el = jQuery(this),
-                elForm = el.find('form');
+    //         var el = jQuery(this),
+    //             elForm = el.find('form');
 
-            if (el.hasClass('contact-form-block')) {
-                elForm.prepend('<input type="text" name="form_current_website" value="' + document.location.hostname + '" style="display: none;">');
-            }
+    //         if (el.hasClass('contact-form-block')) {
+    //             elForm.prepend('<input type="text" name="form_current_website" value="' + document.location.hostname + '" style="display: none;">');
+    //         }
 
-            if (!el.hasClass('search-form-block') && !el.hasClass('header-search-form-block')) {
+    //         if (!el.hasClass('search-form-block') && !el.hasClass('header-search-form-block')) {
 
-                if (!el.hasClass('account-form-block')) {
-                    elForm.append('<div class="gfort-form-alert-message col-md-12"></div>');
-                }
+    //             if (!el.hasClass('account-form-block')) {
+    //                 elForm.append('<div class="gfort-form-alert-message col-md-12"></div>');
+    //             }
 
-                jQuery(elForm).validate({
-                    rules: {
-                        form_general: 'required',
-                        form_name: 'required',
-                        form_first_name: 'required',
-                        form_last_name: 'required',
-                        form_email: {
-                            required: true,
-                            email: true
-                        },
-                        form_message: 'required',
-                        form_subject: 'required',
-                        form_terms: 'required',
-                        form_comment: 'required',
-                        form_phone: {
-                            required: true,
-                            digits: true,
-                            minlength: 10,
-                            maxlength: 10
-                        },
-                        form_rate: 'required',
-                        form_country: 'required',
-                        form_address: 'required',
-                        form_town_city: 'required',
-                        form_postcode_ZIP: {
-                            required: true,
-                            digits: true,
-                            minlength: 5,
-                            maxlength: 5
-                        },
-                        form_password: {
-                            required: true,
-                            minlength: 8
-                        },
-                        form_password_again: {
-                            equalTo: '#form_password'
-                        },
-                        form_new_password: {
-                            minlength: 8
-                        },
-                        form_new_password_again: {
-                            equalTo: '#form_new_password'
-                        },
-                        form_username: 'required',
-                        form_ship_to_first_name: 'required',
-                        form_ship_to_last_name: 'required',
-                        form_ship_to_country: 'required',
-                        form_ship_to_address: 'required',
-                        form_ship_to_town_city: 'required',
-                        form_ship_to_postcode_ZIP: 'required',
-                        account_form_name: 'required',
-                        account_form_password: 'required',
-                        account_form_email: {
-                            required: true,
-                            email: true
-                        },
-                        form_attend: 'required',
-                        form_bmi_weight: {
-                            required: true,
-                            number: true,
-                            minlength: 1,
-                            maxlength: 5
-                        },
-                        form_bmi_height: {
-                            required: true,
-                            number: true,
-                            minlength: 1,
-                            maxlength: 5
-                        }
-                    },
-                    messages: {
-                        form_general: {
-                            required: 'This field is required.'
-                        },
-                        form_name: 'Your name is required.',
-                        form_first_name: 'Your first name is required.',
-                        form_last_name: 'Your last name is required.',
-                        form_email: {
-                            required: 'Please provide an email address.',
-                            email: 'Please enter a valid email address.'
-                        },
-                        form_message: 'Don\'t you want to say something ?.',
-                        form_subject: 'Your subject is required.',
-                        form_terms: 'You have to accept the terms and conditions.',
-                        form_comment: 'Don\'t you want to say something ?.',
-                        form_phone: {
-                            required: 'Please provide a phone number.',
-                            digits: 'Please enter digits only',
-                            minlength: 'Please enter a valid phone number.',
-                            maxlength: 'Please enter a valid phone number.'
-                        },
-                        form_rate: 'Please select a rating.',
-                        form_country: 'Please select a country.',
-                        form_address: 'Your address is required.',
-                        form_town_city: 'Your Town / City is required.',
-                        form_postcode_ZIP: {
-                            required: 'Your Postcode / ZIP is required.',
-                            digits: 'Please enter digits only',
-                            minlength: 'Please enter a valid Postcode / ZIP number.',
-                            maxlength: 'Please enter a valid Postcode / ZIP number.'
-                        },
-                        form_password: {
-                            required: 'Your password is required.',
-                            minlength: 'Please enter at least 8 characters.'
-                        },
-                        form_password_again: {
-                            equalTo: 'Your passwords do not match, please try again!.'
-                        },
-                        form_new_password: {
-                            minlength: 'Please enter at least 8 characters.'
-                        },
-                        form_new_password_again: {
-                            equalTo: 'Your passwords do not match, please try again!.'
-                        },
-                        form_username: 'Your username is required.',
-                        form_ship_to_first_name: 'Your first name is required.',
-                        form_ship_to_last_name: 'Your last name is required.',
-                        form_ship_to_country: 'Please select a country.',
-                        form_ship_to_address: 'Your address is required.',
-                        form_ship_to_town_city: 'Your Town / City is required.',
-                        form_ship_to_postcode_ZIP: {
-                            required: 'Your Postcode / ZIP is required.',
-                            digits: 'Please enter digits only',
-                            minlength: 'Please enter a valid Postcode / ZIP number.',
-                            maxlength: 'Please enter a valid Postcode / ZIP number.'
-                        },
-                        account_form_name: 'Your username is missing!',
-                        account_form_password: 'Your password is missing!',
-                        account_form_email: {
-                            required: 'Please provide an email address.',
-                            email: 'Please enter a valid email address.'
-                        },
-                        form_attend: {
-                            required: 'This field is required.'
-                        },
-                        form_bmi_weight: {
-                            required: 'This field is required.',
-                            number: 'Please enter numbers only',
-                            minlength: 'Please enter a valid number.',
-                            maxlength: 'Please enter a valid number.'
-                        },
-                        form_bmi_height: {
-                            required: 'This field is required.',
-                            number: 'Please enter numbers only',
-                            minlength: 'Please enter a valid number.',
-                            maxlength: 'Please enter a valid number.'
-                        }
-                    },
-                    submitHandler: function () {
+    //             jQuery(elForm).validate({
+    //                 rules: {
+    //                     form_general: 'required',
+    //                     form_name: 'required',
+    //                     form_first_name: 'required',
+    //                     form_last_name: 'required',
+    //                     form_email: {
+    //                         required: true,
+    //                         email: true
+    //                     },
+    //                     form_message: 'required',
+    //                     form_subject: 'required',
+    //                     form_terms: 'required',
+    //                     form_comment: 'required',
+    //                     form_phone: {
+    //                         required: true,
+    //                         digits: true,
+    //                         minlength: 10,
+    //                         maxlength: 10
+    //                     },
+    //                     form_rate: 'required',
+    //                     form_country: 'required',
+    //                     form_address: 'required',
+    //                     form_town_city: 'required',
+    //                     form_postcode_ZIP: {
+    //                         required: true,
+    //                         digits: true,
+    //                         minlength: 5,
+    //                         maxlength: 5
+    //                     },
+    //                     form_password: {
+    //                         required: true,
+    //                         minlength: 8
+    //                     },
+    //                     form_password_again: {
+    //                         equalTo: '#form_password'
+    //                     },
+    //                     form_new_password: {
+    //                         minlength: 8
+    //                     },
+    //                     form_new_password_again: {
+    //                         equalTo: '#form_new_password'
+    //                     },
+    //                     form_username: 'required',
+    //                     form_ship_to_first_name: 'required',
+    //                     form_ship_to_last_name: 'required',
+    //                     form_ship_to_country: 'required',
+    //                     form_ship_to_address: 'required',
+    //                     form_ship_to_town_city: 'required',
+    //                     form_ship_to_postcode_ZIP: 'required',
+    //                     account_form_name: 'required',
+    //                     account_form_password: 'required',
+    //                     account_form_email: {
+    //                         required: true,
+    //                         email: true
+    //                     },
+    //                     form_attend: 'required',
+    //                     form_bmi_weight: {
+    //                         required: true,
+    //                         number: true,
+    //                         minlength: 1,
+    //                         maxlength: 5
+    //                     },
+    //                     form_bmi_height: {
+    //                         required: true,
+    //                         number: true,
+    //                         minlength: 1,
+    //                         maxlength: 5
+    //                     }
+    //                 },
+    //                 messages: {
+    //                     form_general: {
+    //                         required: 'This field is required.'
+    //                     },
+    //                     form_name: 'Your name is required.',
+    //                     form_first_name: 'Your first name is required.',
+    //                     form_last_name: 'Your last name is required.',
+    //                     form_email: {
+    //                         required: 'Please provide an email address.',
+    //                         email: 'Please enter a valid email address.'
+    //                     },
+    //                     form_message: 'Don\'t you want to say something ?.',
+    //                     form_subject: 'Your subject is required.',
+    //                     form_terms: 'You have to accept the terms and conditions.',
+    //                     form_comment: 'Don\'t you want to say something ?.',
+    //                     form_phone: {
+    //                         required: 'Please provide a phone number.',
+    //                         digits: 'Please enter digits only',
+    //                         minlength: 'Please enter a valid phone number.',
+    //                         maxlength: 'Please enter a valid phone number.'
+    //                     },
+    //                     form_rate: 'Please select a rating.',
+    //                     form_country: 'Please select a country.',
+    //                     form_address: 'Your address is required.',
+    //                     form_town_city: 'Your Town / City is required.',
+    //                     form_postcode_ZIP: {
+    //                         required: 'Your Postcode / ZIP is required.',
+    //                         digits: 'Please enter digits only',
+    //                         minlength: 'Please enter a valid Postcode / ZIP number.',
+    //                         maxlength: 'Please enter a valid Postcode / ZIP number.'
+    //                     },
+    //                     form_password: {
+    //                         required: 'Your password is required.',
+    //                         minlength: 'Please enter at least 8 characters.'
+    //                     },
+    //                     form_password_again: {
+    //                         equalTo: 'Your passwords do not match, please try again!.'
+    //                     },
+    //                     form_new_password: {
+    //                         minlength: 'Please enter at least 8 characters.'
+    //                     },
+    //                     form_new_password_again: {
+    //                         equalTo: 'Your passwords do not match, please try again!.'
+    //                     },
+    //                     form_username: 'Your username is required.',
+    //                     form_ship_to_first_name: 'Your first name is required.',
+    //                     form_ship_to_last_name: 'Your last name is required.',
+    //                     form_ship_to_country: 'Please select a country.',
+    //                     form_ship_to_address: 'Your address is required.',
+    //                     form_ship_to_town_city: 'Your Town / City is required.',
+    //                     form_ship_to_postcode_ZIP: {
+    //                         required: 'Your Postcode / ZIP is required.',
+    //                         digits: 'Please enter digits only',
+    //                         minlength: 'Please enter a valid Postcode / ZIP number.',
+    //                         maxlength: 'Please enter a valid Postcode / ZIP number.'
+    //                     },
+    //                     account_form_name: 'Your username is missing!',
+    //                     account_form_password: 'Your password is missing!',
+    //                     account_form_email: {
+    //                         required: 'Please provide an email address.',
+    //                         email: 'Please enter a valid email address.'
+    //                     },
+    //                     form_attend: {
+    //                         required: 'This field is required.'
+    //                     },
+    //                     form_bmi_weight: {
+    //                         required: 'This field is required.',
+    //                         number: 'Please enter numbers only',
+    //                         minlength: 'Please enter a valid number.',
+    //                         maxlength: 'Please enter a valid number.'
+    //                     },
+    //                     form_bmi_height: {
+    //                         required: 'This field is required.',
+    //                         number: 'Please enter numbers only',
+    //                         minlength: 'Please enter a valid number.',
+    //                         maxlength: 'Please enter a valid number.'
+    //                     }
+    //                 },
+    //                 submitHandler: function () {
 
-                        var formDate = elForm.serialize(),
-                            formReditect = el.attr('data-redirect-page'),
-                            formActionURL = elForm.attr('action'),
-                            recaptchaID = elForm.find('.gfort-recaptcha').attr('id');
+    //                     var formDate = elForm.serialize(),
+    //                         formReditect = el.attr('data-redirect-page'),
+    //                         formActionURL = elForm.attr('action'),
+    //                         recaptchaID = elForm.find('.gfort-recaptcha').attr('id');
 
-                        elForm.find('button').addClass('add-spin');
+    //                     elForm.find('button').addClass('add-spin');
 
-                        jQuery.ajax({
-                            type: 'post',
-                            url: formActionURL,
-                            data: formDate
-                        }).done(function (response) {
+    //                     jQuery.ajax({
+    //                         type: 'post',
+    //                         url: formActionURL,
+    //                         data: formDate
+    //                     }).done(function (response) {
 
-                            /* Success Message
-                            ----------------------------------------------------- */
-                            if (response.match('success-message') !== null) {
+    //                         if (response.match('success-message') !== null) {
 
-                                if (formReditect !== undefined && formReditect !== 'undefined' && formReditect !== '') {
-                                    window.location = formReditect;
-                                } else {
+    //                             if (formReditect !== undefined && formReditect !== 'undefined' && formReditect !== '') {
+    //                                 window.location = formReditect;
+    //                             } else {
 
-                                    if (elForm.find('.gfort-recaptcha').length > 0) {
-                                        elForm.find('.gfort-recaptcha').remove();
-                                        elForm.find('.gfort-recaptcha-wrapper').prepend('<div class="gfort-recaptcha" id="' + recaptchaID + '" data-sitekey="' + gfortRecaptchaSiteKey + '" data-callback="recaptchaCallback"></div>');
-                                        grecaptcha.render(recaptchaID, {sitekey: gfortRecaptchaSiteKey});
-                                    }
+    //                                 if (elForm.find('.gfort-recaptcha').length > 0) {
+    //                                     elForm.find('.gfort-recaptcha').remove();
+    //                                     elForm.find('.gfort-recaptcha-wrapper').prepend('<div class="gfort-recaptcha" id="' + recaptchaID + '" data-sitekey="' + gfortRecaptchaSiteKey + '" data-callback="recaptchaCallback"></div>');
+    //                                     grecaptcha.render(recaptchaID, {sitekey: gfortRecaptchaSiteKey});
+    //                                 }
 
-                                    if (elForm.find('.gfort-chosen-select').length > 0) {
-                                        elForm.find('.gfort-chosen-select').val('').trigger('chosen:updated');
-                                    }
+    //                                 if (elForm.find('.gfort-chosen-select').length > 0) {
+    //                                     elForm.find('.gfort-chosen-select').val('').trigger('chosen:updated');
+    //                                 }
 
-                                    elForm.find('.gfort-form-alert-message .alert').remove();
-                                    elForm.find('.gfort-form-alert-message').append('<div class="alert alert-gfort alert-success"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><div class="form-respones-message"></div></div>');
-                                    elForm.find('.gfort-form-alert-message .form-respones-message').html(response);
+    //                                 elForm.find('.gfort-form-alert-message .alert').remove();
+    //                                 elForm.find('.gfort-form-alert-message').append('<div class="alert alert-gfort alert-success"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><div class="form-respones-message"></div></div>');
+    //                                 elForm.find('.gfort-form-alert-message .form-respones-message').html(response);
 
-                                }
+    //                             }
 
-                                elForm.find('.form-control').val('');
-                                elForm.find('input[type="checkbox"]').attr('checked', false);
+    //                             elForm.find('.form-control').val('');
+    //                             elForm.find('input[type="checkbox"]').attr('checked', false);
 
-                            }
+    //                         }
 
-                            /* reCaptcha Error Message
-                            ----------------------------------------------------- */
-                            if (response.match('error-captcha') !== null) {
-                                jQuery('.gfort-captcha-error').remove();
-                                elForm.find('.gfort-recaptcha').after('<label class="gfort-captcha-error error">' + response + '</label>');
-                            }
+    //                         if (response.match('error-captcha') !== null) {
+    //                             jQuery('.gfort-captcha-error').remove();
+    //                             elForm.find('.gfort-recaptcha').after('<label class="gfort-captcha-error error">' + response + '</label>');
+    //                         }
 
-                            /* Error Message
-                            ----------------------------------------------------- */
-                            if (response.match('error-message') !== null) {
-                                elForm.find('.gfort-form-alert-message .alert').remove();
-                                elForm.find('.gfort-form-alert-message').append('<div class="alert alert-danger alert-gfort alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><div class="form-respones-message"></div></div>');
-                                elForm.find('.gfort-form-alert-message .form-respones-message').html(response);
-                            }
+    //                         if (response.match('error-message') !== null) {
+    //                             elForm.find('.gfort-form-alert-message .alert').remove();
+    //                             elForm.find('.gfort-form-alert-message').append('<div class="alert alert-danger alert-gfort alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><div class="form-respones-message"></div></div>');
+    //                             elForm.find('.gfort-form-alert-message .form-respones-message').html(response);
+    //                         }
 
-                            elForm.find('button').removeClass('add-spin');
+    //                         elForm.find('button').removeClass('add-spin');
 
-                        });
+    //                     });
 
-                    }
-                });
+    //                 }
+    //             });
 
-                /* Additional Method to validate email
-                ------------------------------------------------------------- */
-                jQuery.validator.methods.email = function (value, element) {
-                    return this.optional(element) || (/\S+@\S+\.\S+/).test(value);
-                };
+    //             jQuery.validator.methods.email = function (value, element) {
+    //                 return this.optional(element) || (/\S+@\S+\.\S+/).test(value);
+    //             };
 
-            }
+    //         }
 
-        });
-    }
+    //     });
+    // }
 
     /* Condition
     ------------------------------------------------------------------------- */
@@ -2525,18 +2517,18 @@ jQuery(document).ready(function () {
         /* =====================================================================
         Select Box
         ===================================================================== */
-        if (jQuery('select').length) {
-            if (!jQuery('link[href="/theme/js/plugins/chosen/chosen.min.css"]').length) {
-                jQuery('head').prepend('<link rel="stylesheet" href="/theme/js/plugins/chosen/chosen.min.css">');
-                jQuery.getScript('/theme/js/plugins/chosen/chosen.jquery.min.js', function () {
-                    gfortSelectfn();
-                });
-            } else {
-                jQuery.getScript('/theme/js/plugins/chosen/chosen.jquery.min.js', function () {
-                    gfortSelectfn();
-                });
-            }
-        }
+        // if (jQuery('select').length) {
+        //     if (!jQuery('link[href="/theme/js/plugins/chosen/chosen.min.css"]').length) {
+        //         jQuery('head').prepend('<link rel="stylesheet" href="/theme/js/plugins/chosen/chosen.min.css">');
+        //         jQuery.getScript('/theme/js/plugins/chosen/chosen.jquery.min.js', function () {
+        //             gfortSelectfn();
+        //         });
+        //     } else {
+        //         jQuery.getScript('/theme/js/plugins/chosen/chosen.jquery.min.js', function () {
+        //             gfortSelectfn();
+        //         });
+        //     }
+        // }
 
         /* =====================================================================
         Counter Block
@@ -2601,7 +2593,7 @@ jQuery(window).resize(function () {
 /* =============================================================================
 Window Load Function
 ============================================================================= */
-jQuery(window).load(function () {
+$(function () {
 
     'use strict';
 

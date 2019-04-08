@@ -8,6 +8,7 @@ use yii\web\NotFoundHttpException;
 use yii\data\ActiveDataProvider;
 
 use app\models\Article;
+use app\models\SearchArticle;
 
 class ArticleController extends \yii\web\Controller
 {
@@ -26,23 +27,23 @@ class ArticleController extends \yii\web\Controller
                     [
                         'allow' => true,
                         'roles' => ['admin'],
-                        'actions' => ['delete'],
+                        'actions' => ['delete', 'publish'],
                     ],
                 ],
             ],
         ];
     }
 
-    public function actionIndex()
-    {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Article::find(),
-        ]);
+    public function actionIndex() 
+    { 
+        $searchModel = new SearchArticle(); 
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams); 
 
-        return $this->render('index', [
-            'dataProvider' => $dataProvider,
-        ]);
-    }
+        return $this->render('index', [ 
+            'searchModel' => $searchModel, 
+            'dataProvider' => $dataProvider, 
+        ]); 
+    } 
 
     public function actionCreate()
     {
@@ -80,12 +81,24 @@ class ArticleController extends \yii\web\Controller
         return $this->redirect(['index']);
     }
 
+    public function actionPublish($id)
+    {
+        if (!Yii::$app->user->can('admin')) {
+            throw new NotFoundHttpException('Статья не найдена');
+        }
+
+        $article = $this->findModel($id);
+        $article->is_published = !$article->is_published;
+        $article->save(false);
+
+       return $this->redirect(['index']);
+    }
+
     protected function findModel($id)
     {
         if (($article = Article::findOne($id)) !== null) {
             return $article;
         }
 
-        throw new NotFoundHttpException('Статья не найдена');
     }
 }

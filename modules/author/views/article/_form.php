@@ -2,31 +2,33 @@
 
 use yii\helpers\Url;
 use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
+
+use app\models\Theme;
 
 ?>
 
 <?php $form = ActiveForm::begin() ?>
-    <!-- Name -->
+
     <h1><?= $title ?></h1>
-    <div class="col-md-12">
+
+    <div class="col-md-6">
         <?= $form->field($article, 'title') ?>
-    </div><!-- /End Name -->
+    </div>
 
-    <!-- Email Address -->
+    <div class="col-md-6">
+        <?= $form->field($article, 'theme_id')->dropDownlist(ArrayHelper::map(Theme::find()->all(), 'id', 'name')); ?>
+    </div>
+
     <div class="col-md-12">
-        <!-- Form Group -->
-          <?= $form->field($article, 'content')->textarea() ?>
-    </div><!-- /End Email Address -->
-    <!-- Submit Button -->
+        <?= $form->field($article, 'content')->textarea() ?>
+    </div>
+
     <div class="col-md-12">
-        <!-- Form Group -->
         <div class="form-group">
-
             <?= Html::submitButton('Сохранить', ['class' => 'btn btn-gfort']) ?>
-
-        </div><!-- /End Form Group -->
-    </div><!-- /End Submit Button -->
-
+        </div>
+    </div>
 
 <?php ActiveForm::end() ?>

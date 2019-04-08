@@ -7,6 +7,8 @@ use Yii;
 
 class Article extends \yii\db\ActiveRecord
 {
+    const HIDE = 0;
+    const SHOW = 1;
 
     public static function tableName()
     {
@@ -16,7 +18,7 @@ class Article extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'content'], 'required'],
+            [['title', 'content', 'theme_id'], 'required'],
             [['content'], 'string'],
             [['title'], 'string', 'max' => 250],
         ];
@@ -27,7 +29,8 @@ class Article extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'title' => 'Статья',
-            'content' => 'Содержпние',
+            'content' => 'Содержание',
+            'theme_id' => 'Тема',
             'created' => 'Создана',
         ];
     }

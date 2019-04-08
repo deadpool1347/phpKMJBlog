@@ -84,7 +84,8 @@ class SiteController extends \yii\web\Controller
             ->joinWith(['user', 'theme'])
             ->orFilterWhere(['like', 'article.title', $search])
             ->orFilterWhere(['like', 'user.login', $search])
-            ->orFilterWhere(['like', 'theme.name', $search]),
+            ->orFilterWhere(['like', 'theme.name', $search])
+            ->where(['is_published' => Article::SHOW]),
           'pagination' => [
               'pageSize' => 5,
           ],

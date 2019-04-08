@@ -3,9 +3,15 @@
 return [
     'class' => 'yii\db\Connection',
     'dsn' => 'mysql:host=localhost;dbname=kmjblog',
-    'username' => 'Blog',
-    'password' => '9705coolchild',
+    'username' => 'root',
+    'password' => '',
     'charset' => 'utf8',
+
+    // 'class' => 'yii\db\Connection',
+    // 'dsn' => 'mysql:host=localhost;dbname=kmjblog',
+    // 'username' => 'Blog',
+    // 'password' => '9705coolchild',
+    // 'charset' => 'utf8',
 
     // Schema cache options (for production environment)
     //'enableSchemaCache' => true,

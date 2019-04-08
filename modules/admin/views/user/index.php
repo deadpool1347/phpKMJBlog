@@ -23,30 +23,37 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Создать пользователя', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-<?= GridView::widget([
+    <?= GridView::widget([
         'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
         'rowOptions' => function($user) {
             if (!$user->active) {
                 return ['style' => 'background-color:#e6b1b1;'];
             }
         },
         'columns' => [
-            'id',
-            'password',
-            'email:email',
-            'active',
-            [
-                'attribute' => 'created',
-                'value' => function($user) {
-                    return  date('d.m.Y', strtotime($user->created));
-                },
-            ],
             [
                 'attribute' => 'login',
+            ],
+            'email:email',
+            [
+                'attribute' => 'active',
+                'filter' => [0 => 'Не активный', 1 => 'Активный'],
+                'format' => 'raw',
+                'value' => function($user) {
+                    return  $user->active ? Html::tag('span', 'Активный', ['class' => 'text-success']) : Html::tag('span', 'Активный', ['class' => 'text-danger']);
+                },
             ],
             [
                 'attribute' => 'itemName.description',
                 'header' => 'Роль',
+            ],
+            [
+                'attribute' => 'created',
+                'filter' => false,
+                'value' => function($user) {
+                    return  date('d.m.Y', strtotime($user->created));
+                },
             ],
             [
                 'class' => 'yii\grid\ActionColumn',

@@ -24,23 +24,31 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <?= GridView::widget([
     'dataProvider' => $dataProvider,
+    'filterModel' => $searchModel,
     'columns' => [
         'id',
         'title',
         [
+            'header' => 'Автор',
+            'attribute' => 'user.login',
+        ],
+        [
             'attribute' => 'created',
+            'filter' => false,
             'value' => function($article) {
                 return  date('d.m.Y', strtotime($article->created));
             }
         ],
         [
-            'attribute' => 'user.login',
-
-        ],
-        [
             'class' => 'yii\grid\ActionColumn',
-            'template' => '{update} {delete}',
+            'template' => '{publish} {update} {delete}',
             'buttons' => [
+                'publish' => function($url, $article) {
+                    if (Yii::$app->user->can('admin')) {
+                        $icon = $article->is_published ? 'glyphicon glyphicon-eye-close' : 'glyphicon glyphicon-eye-open';
+                        return Html::a(Html::tag('span', null, ['class' => $icon]), ['/author/article/publish', 'id' => $article->id]);
+                    }
+                },
                 'update' => function($url, $article) {
                     return Html::a('<span class="glyphicon glyphicon-pencil"></span>', ['/author/article/update', 'id' => $article->id]);
                 },

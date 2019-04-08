@@ -10,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 use app\models\User;
+use app\models\SearchUser;
 use app\models\user\CreateForm;
 use app\models\user\UpdateForm;
 
@@ -33,16 +34,15 @@ class UserController extends Controller
         ];
     }
 
-
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => User::find(),
-        ]);
+        $searchModel = new SearchUser(); 
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams); 
 
-        return $this->render('index', [
-            'dataProvider' => $dataProvider,
-        ]);
+        return $this->render('index', [ 
+            'searchModel' => $searchModel, 
+            'dataProvider' => $dataProvider, 
+        ]); 
     }
 
     public function actionCreate()

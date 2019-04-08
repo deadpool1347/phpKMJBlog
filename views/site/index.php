@@ -9,18 +9,17 @@ $this->title = 'My Yii Application';
 
 
     <!-- Blog item -->
-  <?php
-    echo ListView::widget([
-    'dataProvider' => $dataProvider,
-    'itemView' => '_article',
-]); ?>
+    <?php
+        echo ListView::widget([
+        'dataProvider' => $dataProvider,
+        'itemView' => '_article',
+    ]); ?>
 
 </div><!-- /End Blog items Wrapper -->
 
 <!-- Navigation Block -->
-<div class="gfort-navigation-block">
+<!-- <div class="gfort-navigation-block">
     <nav aria-label="Page navigation">
-        <!-- Pagination -->
         <ul class="pagination">
 
             <li class="disabled">
@@ -48,6 +47,6 @@ $this->title = 'My Yii Application';
                 </a>
             </li>
 
-        </ul><!-- /End Pagination -->
+        </ul>
     </nav>
-</div><!-- /End Navigation Block -->
+</div> -->
